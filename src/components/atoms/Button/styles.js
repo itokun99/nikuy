@@ -51,7 +51,7 @@ export const Wrapper = styled(TouchableOpacity)`
     padding-left: ${METRICS.gutter[size]}px;
     `}
   overflow: hidden;
-  border-radius: ${({ radius }) => METRICS.getRadius(radius, METRICS.radius.xs)}px;
+  border-radius: ${({ radius }) => METRICS.getRadius(radius, METRICS.radius.button)}px;
   cursor: ${({ disabled }) => disabled && 'not-allowed'};
   ${({ withBorder }) => withBorder && 'border-width: 2px; border-style: solid;'}
   ${({ borderColor }) => borderColor && `border-color: ${THEMES.getColor(borderColor)};`}

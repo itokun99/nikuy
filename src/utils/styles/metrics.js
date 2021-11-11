@@ -30,7 +30,7 @@ export const METRICS = {
   },
   radius: {
     input: 10,
-    button: 10,
+    button: 12,
     xxxs: 2,
     xxs: 4,
     xs: 8,

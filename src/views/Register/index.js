@@ -10,16 +10,24 @@ import {
 } from 'components';
 import { Wrapper } from './styles';
 
-const Login = () => (
+const Register = () => (
   <>
-    <NavbarBack title="Masuk" />
+    <NavbarBack title="Daftar" />
     <BackgroundImage image="/assets/images/img-register.svg" />
     <Wrapper>
       <Container>
         <FormGroup>
           <FormInput
+            label="Nama Lengkap"
+            name="name"
+            placeholder="Masukan nama kamu"
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormInput
             label="Email"
             name="email"
+            type="email"
             placeholder="Masukan email kamu"
           />
         </FormGroup>
@@ -31,20 +39,23 @@ const Login = () => (
             placeholder="Masukan kata sandi kamu"
           />
         </FormGroup>
-        <Gap height="xs" />
         <FormGroup>
-          <Text align="right" size="xxs" link="/lupa-sandi">Lupa kata sandi?</Text>
+          <FormInput
+            label="Konfirmasi Kata Sandi"
+            name="password_confirmation"
+            type="password"
+            placeholder="Masukan konfirmasi kata sandi"
+          />
         </FormGroup>
-        <Gap height="xs" />
         <FormGroup>
-          <Button title="Masuk" />
+          <Button title="Buat Akun" />
         </FormGroup>
         <Gap height="xs" />
         <FormGroup>
           <Text size="xxs">
-            Belum punya akun?
+            Sudah punya akun?
             {' '}
-            <Text size="xxs" link="/daftar">daftar disini</Text>
+            <Text size="xxs" link="/masuk">Masuk disini</Text>
           </Text>
         </FormGroup>
       </Container>
@@ -52,4 +63,4 @@ const Login = () => (
   </>
 );
 
-export default Login;
+export default Register;

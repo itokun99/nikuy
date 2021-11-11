@@ -19,6 +19,7 @@ import FormText from './FormText';
 import Checkbox from './Checkbox';
 import Skeleton from './Skeleton';
 import Container from './Container';
+import FormInput from './FormInput';
 import TextInput from './TextInput';
 import FormGroup from './FormGroup';
 import RenderHtml from './RenderHtml';
@@ -51,6 +52,7 @@ export {
   Checkbox,
   Skeleton,
   FormGroup,
+  FormInput,
   TextInput,
   Container,
   RenderHtml,

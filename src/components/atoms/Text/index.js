@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { CustomText } from './styles';
-import TouchableOpacity from '../TouchableOpacity';
+import { CustomText, CustomLink } from './styles';
 
 const Text = ({
   link,
@@ -20,8 +20,8 @@ const Text = ({
 }) => {
   if (link) {
     return (
-      <TouchableOpacity onPress={onPressLink}>
-        <CustomText
+      <Link href={link} passHref>
+        <CustomLink
           size={size}
           strike={strike}
           link={link}
@@ -33,8 +33,8 @@ const Text = ({
           {...props}
         >
           {children}
-        </CustomText>
-      </TouchableOpacity>
+        </CustomLink>
+      </Link>
     );
   }
   return (
