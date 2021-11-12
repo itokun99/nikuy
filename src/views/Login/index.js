@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   Gap,
   Text,
+  Form,
   Button,
   FormGroup,
   Container,
@@ -60,7 +61,9 @@ const Login = () => {
     return !invalid;
   };
 
-  const submit = async () => {
+  const submit = async e => {
+    e?.preventDefault?.();
+
     if (!validate()) {
       return null;
     }
@@ -84,49 +87,51 @@ const Login = () => {
       <BackgroundImage image="/assets/images/img-register.svg" />
       <Wrapper>
         <Container>
-          <FormGroup>
-            <FormInput
-              label="Email"
-              name="email"
-              value={form.email}
-              onChange={onChange}
-              disabled={loading}
-              error={Boolean(errors.email)}
-              errorMessage={errors.email}
-              placeholder="Masukan email kamu"
-            />
-          </FormGroup>
-          <FormGroup>
-            <FormInput
-              label="Kata Sandi"
-              name="password"
-              type="password"
-              value={form.password}
-              onChange={onChange}
-              disabled={loading}
-              error={Boolean(errors.password)}
-              errorMessage={errors.password}
-              placeholder="Masukan kata sandi kamu"
-            />
-          </FormGroup>
-          <Gap height="xs" />
-          <FormGroup>
-            <TextWrapper>
-              <Text align="right" size="xxs" link="/lupa-sandi">Lupa kata sandi?</Text>
-            </TextWrapper>
-          </FormGroup>
-          <Gap height="xs" />
-          <FormGroup>
-            <Button disabled={loading} onPress={submit} title="Masuk" />
-          </FormGroup>
-          <Gap height="xs" />
-          <FormGroup>
-            <Text size="xxs">
-              Belum punya akun?
-              {' '}
-              <Text size="xxs" link="/daftar">daftar disini</Text>
-            </Text>
-          </FormGroup>
+          <Form onSubmit={submit}>
+            <FormGroup>
+              <FormInput
+                label="Email"
+                name="email"
+                value={form.email}
+                onChange={onChange}
+                disabled={loading}
+                error={Boolean(errors.email)}
+                errorMessage={errors.email}
+                placeholder="Masukan email kamu"
+              />
+            </FormGroup>
+            <FormGroup>
+              <FormInput
+                label="Kata Sandi"
+                name="password"
+                type="password"
+                value={form.password}
+                onChange={onChange}
+                disabled={loading}
+                error={Boolean(errors.password)}
+                errorMessage={errors.password}
+                placeholder="Masukan kata sandi kamu"
+              />
+            </FormGroup>
+            <Gap height="xs" />
+            <FormGroup>
+              <TextWrapper>
+                <Text align="right" size="xxs" link="/lupa-sandi">Lupa kata sandi?</Text>
+              </TextWrapper>
+            </FormGroup>
+            <Gap height="xs" />
+            <FormGroup>
+              <Button disabled={loading} onPress={submit} title="Masuk" />
+            </FormGroup>
+            <Gap height="xs" />
+            <FormGroup>
+              <Text size="xxs">
+                Belum punya akun?
+                {' '}
+                <Text size="xxs" link="/daftar">daftar disini</Text>
+              </Text>
+            </FormGroup>
+          </Form>
         </Container>
       </Wrapper>
     </>

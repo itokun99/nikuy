@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   Gap,
+  Form,
   Text,
   Button,
   FormGroup,
@@ -79,7 +80,10 @@ const Register = () => {
     return !invalid;
   };
 
-  const submit = async () => {
+  const submit = async e => {
+    e?.preventDefault?.();
+    console.log('masuk');
+
     if (!validate()) {
       return null;
     }
@@ -104,67 +108,69 @@ const Register = () => {
       <BackgroundImage image="/assets/images/img-register.svg" />
       <Wrapper>
         <Container>
-          <FormGroup>
-            <FormInput
-              label="Nama Lengkap"
-              name="name"
-              value={form.name}
-              onChange={onChange}
-              error={Boolean(error.name)}
-              errorMessage={error.name}
-              disabled={loading}
-              placeholder="Masukan nama kamu"
-            />
-          </FormGroup>
-          <FormGroup>
-            <FormInput
-              label="Email"
-              name="email"
-              type="email"
-              value={form.email}
-              onChange={onChange}
-              error={Boolean(error.email)}
-              errorMessage={error.email}
-              disabled={loading}
-              placeholder="Masukan email kamu"
-            />
-          </FormGroup>
-          <FormGroup>
-            <FormInput
-              label="Kata Sandi"
-              name="password"
-              type="password"
-              value={form.password}
-              onChange={onChange}
-              error={Boolean(error.password)}
-              errorMessage={error.password}
-              disabled={loading}
-              placeholder="Masukan kata sandi kamu"
-            />
-          </FormGroup>
-          <FormGroup>
-            <FormInput
-              label="Konfirmasi Kata Sandi"
-              name="password_confirmation"
-              type="password"
-              onChange={onChange}
-              error={Boolean(error.password_confirmation)}
-              errorMessage={error.password_confirmation}
-              disabled={loading}
-              placeholder="Masukan konfirmasi kata sandi"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Button disabled={loading} onPress={submit} title="Buat Akun" />
-          </FormGroup>
-          <Gap height="xs" />
-          <FormGroup>
-            <Text size="xxs">
-              Sudah punya akun?
-              {' '}
-              <Text size="xxs" link="/masuk">Masuk disini</Text>
-            </Text>
-          </FormGroup>
+          <Form onSubmit={submit}>
+            <FormGroup>
+              <FormInput
+                label="Nama Lengkap"
+                name="name"
+                value={form.name}
+                onChange={onChange}
+                error={Boolean(error.name)}
+                errorMessage={error.name}
+                disabled={loading}
+                placeholder="Masukan nama kamu"
+              />
+            </FormGroup>
+            <FormGroup>
+              <FormInput
+                label="Email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={onChange}
+                error={Boolean(error.email)}
+                errorMessage={error.email}
+                disabled={loading}
+                placeholder="Masukan email kamu"
+              />
+            </FormGroup>
+            <FormGroup>
+              <FormInput
+                label="Kata Sandi"
+                name="password"
+                type="password"
+                value={form.password}
+                onChange={onChange}
+                error={Boolean(error.password)}
+                errorMessage={error.password}
+                disabled={loading}
+                placeholder="Masukan kata sandi kamu"
+              />
+            </FormGroup>
+            <FormGroup>
+              <FormInput
+                label="Konfirmasi Kata Sandi"
+                name="password_confirmation"
+                type="password"
+                onChange={onChange}
+                error={Boolean(error.password_confirmation)}
+                errorMessage={error.password_confirmation}
+                disabled={loading}
+                placeholder="Masukan konfirmasi kata sandi"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Button type="submit" disabled={loading} onPress={submit} title="Buat Akun" />
+            </FormGroup>
+            <Gap height="xs" />
+            <FormGroup>
+              <Text size="xxs">
+                Sudah punya akun?
+                {' '}
+                <Text size="xxs" link="/masuk">Masuk disini</Text>
+              </Text>
+            </FormGroup>
+          </Form>
         </Container>
       </Wrapper>
     </>

@@ -18,6 +18,7 @@ const Button = ({
   withBorder,
   borderColor,
   disabled,
+  type,
   ...props
 }) => {
   const renderTitle = () => {
@@ -57,6 +58,7 @@ const Button = ({
       withBorder={withBorder}
       borderColor={borderColor}
       disabled={disabled}
+      type={type}
       {...props}
     >
       {renderTitle()}
@@ -65,6 +67,7 @@ const Button = ({
 };
 
 Button.propTypes = {
+  type: PropTypes.oneOf(['submit', 'button']),
   onPress: PropTypes.func,
   color: PropTypes.string,
   icon: PropTypes.string,
@@ -79,6 +82,7 @@ Button.propTypes = {
   borderColor: PropTypes.string
 };
 Button.defaultProps = {
+  type: 'button',
   color: 'primary',
   icon: '',
   title: '',
