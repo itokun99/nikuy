@@ -5,7 +5,11 @@ const routePaths = {
   ACCOUNT: '/akun',
   AUTH: '/mulai',
   LOGIN: '/masuk',
-  REGISTER: '/daftar'
+  REGISTER: '/daftar',
+  PROFILE: '/profil',
+  USER_INVITATIONS: '/undanganku',
+  INFO: '/info',
+  LOGOUT: '/keluar'
 };
 
 export { routePaths };

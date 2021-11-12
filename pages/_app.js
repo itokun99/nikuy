@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import {
   GlobalStyle
 } from 'components';
 import PropTypes from 'prop-types';
-import { store } from 'modules';
+import { store, setLogout } from 'modules';
 import { createWrapper } from 'next-redux-wrapper';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
@@ -12,15 +13,17 @@ import { DefaultSeo } from 'next-seo';
 import { seoConfig } from 'configs';
 import { getProfile } from 'services';
 import { CookiesProvider } from 'react-cookie';
-import { getAuthDataFromCookie } from 'utils';
+import { getAuthDataFromCookie, removeAuthDataFromCookie } from 'utils';
 import { screenLoading } from 'controls';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import { routePaths } from 'routes';
 
 const UtilsContainer = dynamic(() => import('../src/containers/UtilsContainer'), { ssr: false });
 
 const MyApp = ({ Component, pageProps }) => {
   // component state
+  const router = useRouter();
   const [ready, setReady] = useState(false);
 
   const init = useCallback(() => {
@@ -33,7 +36,10 @@ const MyApp = ({ Component, pageProps }) => {
         }, 2000);
       }).catch(err => {
         toast.error(err?.message);
+        removeAuthDataFromCookie();
+        store.dispatch(setLogout());
         screenLoading(false);
+        router.push(routePaths.HOME);
       });
     }
   }, []);
@@ -48,7 +54,6 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <CookiesProvider>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Nikuy - </title>
       </Head>
       <DefaultSeo {...seoConfig} />

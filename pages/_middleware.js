@@ -13,7 +13,7 @@ export default async function middleware(req) {
 
   if (authPath.includes(pathname)) {
     if (nauth) {
-      return NextResponse.redirect('/');
+      return NextResponse.redirect(routePaths.HOME);
     }
   }
 

@@ -11,6 +11,7 @@ export const Wrapper = styled(View)`
   padding-left: ${METRICS.gutter.m}px;
   background-color: ${THEMES.colors.light};
   border-radius: ${METRICS.radius.xs + 4}px;
+  margin-bottom: ${METRICS.gutter.m}px;
   display: grid;
   grid-template-columns: 48px auto;
   ${THEMES.shadow.styled.getBoxShadow()}

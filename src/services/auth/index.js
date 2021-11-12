@@ -1,5 +1,6 @@
 import { API } from 'configs';
-import { setAuthDataToCookie } from 'utils';
+import { store, setLogout } from 'modules';
+import { setAuthDataToCookie, removeAuthDataFromCookie } from 'utils';
 
 export async function login({ email, password }) {
   const request = {
@@ -27,5 +28,16 @@ export async function register(form) {
     throw response;
   }
 
+  return response;
+}
+
+export async function logout() {
+  const response = await API.logout();
+
+  if (!response) {
+    throw response;
+  }
+  store.dispatch(setLogout());
+  removeAuthDataFromCookie();
   return response;
 }

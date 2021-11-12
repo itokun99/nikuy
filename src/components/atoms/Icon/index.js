@@ -16,6 +16,10 @@ import icGoogle from '../../../../public/assets/icons/ic-google.svg';
 import icEmail from '../../../../public/assets/icons/ic-email.svg';
 import icBack from '../../../../public/assets/icons/ic-back.svg';
 import icLove from '../../../../public/assets/icons/ic-love.svg';
+import icEdit from '../../../../public/assets/icons/ic-edit.svg';
+import icPaper from '../../../../public/assets/icons/ic-paper.svg';
+import icInfo from '../../../../public/assets/icons/ic-info.svg';
+import icLogout from '../../../../public/assets/icons/ic-logout.svg';
 
 const icons = {
   'ic-home': icHome,
@@ -31,7 +35,11 @@ const icons = {
   'ic-google': icGoogle,
   'ic-email': icEmail,
   'ic-back': icBack,
-  'ic-love': icLove
+  'ic-love': icLove,
+  'ic-edit': icEdit,
+  'ic-paper': icPaper,
+  'ic-info': icInfo,
+  'ic-logout': icLogout
 };
 
 // Komponen Icon

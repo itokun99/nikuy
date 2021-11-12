@@ -12,6 +12,7 @@ import {
 } from 'components';
 import { useRouter } from 'next/router';
 import { routePaths } from 'routes';
+import { screenLoading } from 'controls';
 import { register, login, getProfile } from 'services';
 import { useForm, validator } from 'utils';
 import { toast } from 'react-toastify';
@@ -82,7 +83,6 @@ const Register = () => {
 
   const submit = async e => {
     e?.preventDefault?.();
-    console.log('masuk');
 
     if (!validate()) {
       return null;
@@ -90,14 +90,17 @@ const Register = () => {
 
     try {
       setLoading(true);
+      screenLoading(true);
       await register(form);
       await login(form);
       await getProfile();
       setForm('reset');
       setLoading(false);
+      screenLoading(false);
       return router.replace(routePaths.HOME);
     } catch (err) {
       setLoading(false);
+      screenLoading(false);
       return toast.error(err?.message);
     }
   };

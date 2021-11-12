@@ -12,6 +12,7 @@ import {
 } from 'components';
 import { useRouter } from 'next/router';
 import { login, getProfile } from 'services';
+import { screenLoading } from 'controls';
 import { toast } from 'react-toastify';
 import { useForm, validator } from 'utils';
 import { routePaths } from 'routes';
@@ -70,13 +71,16 @@ const Login = () => {
 
     try {
       setLoading(true);
+      screenLoading(true);
       await login(form);
       await getProfile();
       setForm('reset');
       setLoading(false);
+      screenLoading(false);
       return router.replace(routePaths.HOME);
     } catch (err) {
       setLoading(false);
+      screenLoading(false);
       return toast.error(err?.message);
     }
   };

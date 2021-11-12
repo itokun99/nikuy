@@ -1,17 +1,24 @@
 import { memo } from 'react';
-import { defaultImage } from 'utils';
-import { Button } from 'components/atoms';
+import { useRouter } from 'next/router';
+import { Button, Gap } from 'components/atoms';
+import { routePaths } from 'routes';
 import {
-  Wrapper, Photo, ContentWrapper
+  Wrapper, ContentWrapper, Name, Photo
 } from './styles';
 
-const CardSignIn = () => (
-  <Wrapper>
-    <Photo src={defaultImage('user')} width={48} height={48} />
-    <ContentWrapper>
-      <Button title="Masuk" />
-    </ContentWrapper>
-  </Wrapper>
-);
+const CardSignIn = () => {
+  const router = useRouter();
+
+  return (
+    <Wrapper>
+      <ContentWrapper>
+        <Photo src="/assets/images/img-create.svg" layout="responsive" width={279} height={210} />
+        <Gap height="m" />
+        <Name>Yuk gabung dan mulai buat undangan kamu sendiri</Name>
+        <Button onPress={() => router.push(routePaths.AUTH)} title="MULAI" />
+      </ContentWrapper>
+    </Wrapper>
+  );
+};
 
 export default memo(CardSignIn);

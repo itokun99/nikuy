@@ -1,8 +1,12 @@
-import { CardProfile, CardSignIn, Container } from 'components';
+import { Container, MenuList } from 'components';
 import { MainContainer } from 'containers';
 import { profileSelector } from 'modules';
 import { useSelector, shallowEqual } from 'react-redux';
 import { getAuthDataFromCookie } from 'utils';
+import dynamic from 'next/dynamic';
+
+const CardProfile = dynamic(() => import('../../components/molecules/CardProfile'), { ssr: false });
+const CardSignIn = dynamic(() => import('../../components/molecules/CardSignIn'), { ssr: false });
 
 const Account = () => {
   const profile = useSelector(profileSelector, shallowEqual);
@@ -32,6 +36,7 @@ const Account = () => {
     >
       <Container>
         {renderProfileTop()}
+        <MenuList />
       </Container>
     </MainContainer>
   );

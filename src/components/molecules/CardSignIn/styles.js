@@ -11,22 +11,21 @@ export const Wrapper = styled(View)`
   padding-left: ${METRICS.gutter.m}px;
   background-color: ${THEMES.colors.light};
   border-radius: ${METRICS.radius.xs + 4}px;
-  flex-direction: row;
+  margin-bottom: ${METRICS.gutter.m}px;
   ${THEMES.shadow.styled.getBoxShadow()}
 `;
 export const Photo = styled(Image)`
-  border-radius: 48px;
 `;
 export const ContentWrapper = styled(View)`
-  margin-left: ${METRICS.gutter.s}px;
   flex: 1;
   justify-content: center;
 `;
 export const Name = styled(Text).attrs({
-  bold: true,
-  size: 's'
+  size: 'm',
+  align: 'center',
+  lineHeight: 24
 })`
-  margin-bottom: ${METRICS.gutter.xs}px;
+  margin-bottom: ${METRICS.gutter.m}px;
 `;
 export const Subname = styled(Text).attrs({
   size: 'xxxs'

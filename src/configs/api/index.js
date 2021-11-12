@@ -9,6 +9,8 @@ API.getUrl = apiRequest.get(apiEndpoint.url);
 // Authentication
 API.login = apiRequest.post(apiEndpoint.login);
 API.register = apiRequest.post(apiEndpoint.register);
+API.logout = apiRequest.get(apiEndpoint.logout);
+
 API.profile = apiRequest.get(apiEndpoint.profile);
 
 export default API;
