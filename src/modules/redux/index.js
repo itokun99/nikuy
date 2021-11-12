@@ -6,8 +6,11 @@ import actionTypes from './actionTypes';
  * REDUCER
  * ======================================
  */
+import account from './account/reducer';
 
-const reducer = combineReducers({});
+const reducer = combineReducers({
+  account
+});
 
 /**
  * ======================================
@@ -35,9 +38,11 @@ export { store, actionTypes };
  * ACTION / DISPATCHER
  * ======================================
  */
+export * from './account/action';
 
 /**
  * ======================================
  * SELECTOR
  * ======================================
  */
+export * from './account/selector';

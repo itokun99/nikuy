@@ -105,6 +105,21 @@ body {
 .react-calendar__tile--active {
   background-color: ${THEMES.colors.secondary};
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
 `;
 
 export default GlobalStyle;

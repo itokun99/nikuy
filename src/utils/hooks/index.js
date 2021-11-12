@@ -7,7 +7,7 @@ import { useState } from 'react';
 export const useForm = initialState => {
   const [state, setState] = useState(initialState);
 
-  const onChangeState = (value, field) => {
+  const onChangeState = (field, value) => {
     if (field === 'reset') {
       return setState(initialState);
     }

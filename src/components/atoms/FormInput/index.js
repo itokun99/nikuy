@@ -4,8 +4,9 @@ import {
   Wrapper,
   Label,
   Input,
-  PasswordLabelWrapper,
-  PasswordLabel
+  HelperText,
+  PasswordLabel,
+  PasswordLabelWrapper
 } from './styles';
 
 const FormInput = ({
@@ -13,14 +14,18 @@ const FormInput = ({
   type,
   value,
   label,
+  error,
+  helper,
   onBlur,
   onFocus,
+  disabled,
   onChange,
-  placeholder
+  placeholder,
+  errorMessage
 }) => {
   const input = useRef();
   const [focus, setFocus] = useState(false);
-  const [visiblePassword, setVisiblePassword] = useState(true);
+  const [visiblePassword, setVisiblePassword] = useState(false);
 
   const onInputFocus = () => {
     onFocus();
@@ -54,21 +59,45 @@ const FormInput = ({
     return null;
   };
 
+  const renderHelperText = () => {
+    if (error && errorMessage) {
+      return (
+        <HelperText error={error}>
+          {errorMessage}
+        </HelperText>
+      );
+    }
+
+    if (helper) {
+      return (
+        <HelperText>
+          {HelperText}
+        </HelperText>
+      );
+    }
+
+    return null;
+  };
+
   return (
-    <Wrapper focus={focus} type={type}>
-      <Label>{label}</Label>
-      <Input
-        ref={input}
-        name={name}
-        type={type === 'password' && visiblePassword ? 'text' : type}
-        value={value}
-        onBlur={onInputBlur}
-        onFocus={onInputFocus}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
-      {renderPasswordUtil()}
-    </Wrapper>
+    <>
+      <Wrapper focus={focus} type={type} error={error} disabled={disabled}>
+        <Label error={error} disabled={disabled}>{label}</Label>
+        <Input
+          ref={input}
+          name={name}
+          type={type === 'password' && visiblePassword ? 'text' : type}
+          value={value}
+          onBlur={onInputBlur}
+          onFocus={onInputFocus}
+          disabled={disabled}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+        {renderPasswordUtil()}
+      </Wrapper>
+      {renderHelperText()}
+    </>
   );
 };
 
@@ -81,11 +110,14 @@ FormInput.propTypes = {
     'date',
     'textarea'
   ]),
+  error: PropTypes.bool,
   name: PropTypes.string,
   label: PropTypes.string,
+  helper: PropTypes.string,
   value: PropTypes.string,
-  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func
 };
 
@@ -93,7 +125,10 @@ FormInput.defaultProps = {
   type: 'text',
   name: '',
   label: '',
+  error: false,
   value: undefined,
+  helper: '',
+  disabled: false,
   onFocus: () => {},
   onBlur: () => {},
   onChange: () => {}

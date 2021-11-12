@@ -2,7 +2,8 @@ const routePaths = {
   HOME: '/',
   SEARCH: '/cari',
   LIST_INVITATION: '/undangan',
-  PROFILE: '/profil'
+  ACCOUNT: '/akun',
+  AUTH: '/mulai'
 };
 
 export { routePaths };

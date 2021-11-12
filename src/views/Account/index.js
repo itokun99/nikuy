@@ -1,13 +1,13 @@
 import { MainContainer } from 'containers';
 
-const Profile = () => (
+const Account = () => (
   <MainContainer
     navbarProps={{
-      title: 'Profil'
+      title: 'Akun'
     }}
   >
     <div>test</div>
   </MainContainer>
 );
 
-export default Profile;
+export default Account;

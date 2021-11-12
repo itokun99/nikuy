@@ -11,6 +11,8 @@ const TouchableOpacity = ({ children, onPress, ...props }) => {
 
   return (
     <RNTouchableOpacity
+      role="button"
+      tabIndex={0}
       onClick={handleOnPress}
       {...props}
     >

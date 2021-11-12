@@ -1,5 +1,7 @@
 import MainContainer from './MainContainer';
+import UtilsContainer from './UtilsContainer';
 
 export {
-  MainContainer
+  MainContainer,
+  UtilsContainer
 };

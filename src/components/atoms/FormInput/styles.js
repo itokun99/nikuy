@@ -12,8 +12,7 @@ export const Wrapper = styled(View)`
   border-radius: ${METRICS.radius.xs + 4}px;
   border: 1.5px solid transparent;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  justify-content: flex-end;
   padding-bottom: ${METRICS.gutter.xs}px;
   padding-left: ${METRICS.gutter.s}px;
   padding-right: ${METRICS.gutter.s}px;
@@ -24,11 +23,16 @@ export const Wrapper = styled(View)`
   ${({ type }) => (type && type === 'password' ? `
     padding-right: 50px;
   ` : '')}
+
+  ${({ error }) => error && `
+    background-color: ${THEMES.colors.light};
+    border-color: ${THEMES.colors.danger}
+  `}
 `;
-export const Label = styled(Text).attrs({
+export const Label = styled(Text).attrs(({ error }) => ({
   size: 'xxxs',
-  color: 'dark'
-})`
+  color: error ? 'danger' : 'dark'
+}))`
   position: absolute;
   top: 0;
   left: 0;
@@ -67,3 +71,11 @@ export const PasswordLabelWrapper = styled(TouchableOpacity)`
 export const PasswordLabel = styled(Text).attrs({
   size: 'xxxs'
 })``;
+
+export const HelperText = styled(Text).attrs(({ error }) => ({
+  size: 10,
+  color: error ? 'danger' : 'deepGray'
+}))`
+  padding-top: ${METRICS.gutter.xs}px;
+  padding-bottom: ${METRICS.gutter.xxs}px;
+`;

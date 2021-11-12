@@ -76,17 +76,17 @@ export const removeAuthDataFromStorage = () => {
 
 export const setAuthDataToCookie = (token, ssrCookie) => {
   const cookies = ssrCookie ? new Cookies(ssrCookie) : new Cookies();
-  cookies.set('groceryAuth', token);
+  cookies.set('nauth', token);
   return token;
 };
 
 export const getAuthDataFromCookie = ssrCookie => {
   const cookies = ssrCookie ? new Cookies(ssrCookie) : new Cookies();
-  const token = cookies.get('groceryAuth');
+  const token = cookies.get('nauth');
   return token;
 };
 
 export const removeAuthDataFromCookie = ssrCookie => {
   const cookies = ssrCookie ? new Cookies(ssrCookie) : new Cookies();
-  cookies.remove('groceryAuth');
+  cookies.remove('nauth');
 };

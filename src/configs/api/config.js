@@ -55,7 +55,7 @@ class ApiRequest {
    * @param {*} token
    * @description Method untuk handling call api
    */
-  static async request(method, route, payload = {}, token = false) {
+  static async request(method, route, payload = {}) {
     const path = payload.path ? `/${payload.path}` : '';
     const params = payload.params
       ? `?${this.resolveParams(payload.params)}`
@@ -68,20 +68,18 @@ class ApiRequest {
           : 'application/json'
     };
 
-    if (token) {
-      const authCookie = getAuthDataFromCookie();
-      if (authCookie) {
-        baseHeaders.Authorization = `Bearer ${authCookie}`;
-      }
+    const authCookie = getAuthDataFromCookie();
+    if (authCookie) {
+      baseHeaders.Authorization = `Bearer ${authCookie}`;
+    }
 
-      // ssr context
-      if (payload?.context) {
-        const cookie = payload?.context?.req?.headers?.cookie;
-        if (cookie) {
-          const authSsrCookie = getAuthDataFromCookie(cookie);
-          if (authSsrCookie) {
-            baseHeaders.Authorization = `Bearer ${authSsrCookie}`;
-          }
+    // ssr context
+    if (payload?.context) {
+      const cookie = payload?.context?.req?.headers?.cookie;
+      if (cookie) {
+        const authSsrCookie = getAuthDataFromCookie(cookie);
+        if (authSsrCookie) {
+          baseHeaders.Authorization = `Bearer ${authSsrCookie}`;
         }
       }
     }

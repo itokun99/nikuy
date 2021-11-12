@@ -34,7 +34,7 @@ export const BackIcon = styled(Icon).attrs({
 })``;
 
 export const Title = styled(Text).attrs(prop => ({
-  color: 'primary',
+  color: 'dark',
   size: prop?.large ? 'xxl' : 'xl'
 }))`
   font-family: ${FONTS.fontFamily.big};

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import {
   GlobalStyle
 } from 'components';
@@ -10,6 +11,9 @@ import { Provider } from 'react-redux';
 import { DefaultSeo } from 'next-seo';
 import { seoConfig } from 'configs';
 import { CookiesProvider } from 'react-cookie';
+import 'react-toastify/dist/ReactToastify.css';
+
+const UtilsContainer = dynamic(() => import('../src/containers/UtilsContainer'), { ssr: false });
 
 const MyApp = ({ Component, pageProps }) => {
   // component state
@@ -31,6 +35,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Provider store={store}>
         <Component {...pageProps} />
         <GlobalStyle />
+        <UtilsContainer />
       </Provider>
     </CookiesProvider>
   );
