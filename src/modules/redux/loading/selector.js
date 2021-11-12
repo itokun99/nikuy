@@ -1,0 +1,1 @@
+export const screenLoadingSelector = state => state.loading.screenLoading;

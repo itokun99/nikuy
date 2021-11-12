@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { routePaths } from 'routes';
 import { useRouter } from 'next/router';
-import { getAuthDataFromCookie } from 'utils';
 import {
   Nav,
   Content,
@@ -44,18 +43,7 @@ const navs = [
 function BottomNav() {
   const router = useRouter();
 
-  const isAuthenticated = getAuthDataFromCookie();
-
-  const navigate = path => {
-    const authPath = [
-      routePaths.ACCOUNT,
-      routePaths.LIST_INVITATION
-    ];
-    if (authPath.includes(path) && !isAuthenticated) {
-      return router.push(routePaths.AUTH);
-    }
-    return router.push(path);
-  };
+  const navigate = path => router.push(path);
 
   return (
     <Wrapper>

@@ -16,7 +16,8 @@
       "modules": ["src/modules"],
       "services": ["src/services"],
       "routes": ["src/routes"],
-      "views": ["src/views"]
+      "views": ["src/views"],
+      "controls": ["src/controls"]
     }
   },
   "exclude": [

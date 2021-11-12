@@ -7,9 +7,11 @@ import actionTypes from './actionTypes';
  * ======================================
  */
 import account from './account/reducer';
+import loading from './loading/reducer';
 
 const reducer = combineReducers({
-  account
+  account,
+  loading
 });
 
 /**
@@ -39,6 +41,7 @@ export { store, actionTypes };
  * ======================================
  */
 export * from './account/action';
+export * from './loading/action';
 
 /**
  * ======================================
@@ -46,3 +49,4 @@ export * from './account/action';
  * ======================================
  */
 export * from './account/selector';
+export * from './loading/selector';

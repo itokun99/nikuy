@@ -38,6 +38,7 @@ export const CustomText = styled.span`
   ${getTextDecoration};
   ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight}px`};
   text-align: ${({ align }) => align};
+  ${({ bold }) => bold && 'font-weight: bold;'}
 `;
 
 export const CustomLink = styled.a`
@@ -51,4 +52,5 @@ export const CustomLink = styled.a`
   ${getTextDecoration};
   ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight}px`};
   text-align: ${({ align }) => align || 'left'};
+  ${({ bold }) => bold && 'font-weight: bold;'}
 `;

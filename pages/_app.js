@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import {
   GlobalStyle
@@ -10,8 +10,12 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { DefaultSeo } from 'next-seo';
 import { seoConfig } from 'configs';
+import { getProfile } from 'services';
 import { CookiesProvider } from 'react-cookie';
+import { getAuthDataFromCookie } from 'utils';
+import { screenLoading } from 'controls';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const UtilsContainer = dynamic(() => import('../src/containers/UtilsContainer'), { ssr: false });
 
@@ -19,11 +23,27 @@ const MyApp = ({ Component, pageProps }) => {
   // component state
   const [ready, setReady] = useState(false);
 
+  const init = useCallback(() => {
+    const authData = getAuthDataFromCookie();
+    if (authData) {
+      screenLoading(true);
+      getProfile().then(() => {
+        setTimeout(() => {
+          screenLoading(false);
+        }, 2000);
+      }).catch(err => {
+        toast.error(err?.message);
+        screenLoading(false);
+      });
+    }
+  }, []);
+
   useEffect(() => {
     if (!ready) {
       setReady(true);
+      init();
     }
-  }, [ready]);
+  }, [ready, init]);
 
   return (
     <CookiesProvider>
