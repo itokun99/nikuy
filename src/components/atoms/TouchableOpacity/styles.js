@@ -9,6 +9,5 @@ export const RNTouchableOpacity = styled.button`
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
   align-items: center;
 `;

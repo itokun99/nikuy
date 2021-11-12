@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import {
   Modal, Button, View, Container, Gap
 } from 'components/atoms';
+import { routePaths } from 'routes';
 
 const ModalAuth = () => {
   const router = useRouter();
@@ -12,7 +13,7 @@ const ModalAuth = () => {
   const onClickEmail = () => {
     setVisible(false);
     setTimeout(() => {
-      router.push('/masuk');
+      router.push(routePaths.LOGIN);
     }, 300);
   };
 

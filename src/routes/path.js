@@ -3,7 +3,9 @@ const routePaths = {
   SEARCH: '/cari',
   LIST_INVITATION: '/undangan',
   ACCOUNT: '/akun',
-  AUTH: '/mulai'
+  AUTH: '/mulai',
+  LOGIN: '/masuk',
+  REGISTER: '/daftar'
 };
 
 export { routePaths };

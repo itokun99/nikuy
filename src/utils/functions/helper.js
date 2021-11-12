@@ -197,3 +197,12 @@ export function isMobile() {
   }
   return false;
 }
+
+export function defaultImage(type) {
+  switch (type) {
+    case 'user':
+      return '/assets/images/img-picture.svg';
+    default:
+      return '/assets/images/img-default.svg';
+  }
+}

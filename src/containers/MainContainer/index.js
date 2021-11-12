@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Navbar, BottomNav } from 'components';
+import { Wrapper } from './styles';
 
 function MainContainer({
   children,
@@ -8,7 +9,9 @@ function MainContainer({
   return (
     <>
       <Navbar {...navbarProps} />
-      {children}
+      <Wrapper>
+        {children}
+      </Wrapper>
       <BottomNav />
     </>
   );
