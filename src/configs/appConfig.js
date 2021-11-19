@@ -2,7 +2,7 @@
  * app initial info
  */
 const appInfo = {
-  name: 'Nikuy',
+  name: 'Halonikah',
   versionName: '1.0.0',
   versionCode: 1,
   author: 'Indrawan Lisanto',
@@ -25,7 +25,7 @@ const seoConfig = {
  */
 const appEnvironment = {
   api: {
-    baseUrl: 'http://192.168.14.186:8000/api'
+    baseUrl: 'http://0.0.0.0:8000/api'
   }
 };
 

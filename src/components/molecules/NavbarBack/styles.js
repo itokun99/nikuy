@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {
   View, Text, Icon, TouchableOpacity
 } from 'components/atoms';
-import { METRICS, FONTS } from 'utils';
+import { METRICS, FONTS, THEMES } from 'utils';
 
 export const Wrapper = styled(View)`
   position: fixed;
@@ -23,6 +23,8 @@ export const Container = styled(View)`
   padding-bottom: ${METRICS.gutter.m}px;
   padding-right: ${METRICS.gutter.m}px;
   padding-left: ${METRICS.gutter.m}px;
+  ${({ color }) => color && `background-color: ${THEMES.getColor(color)}`};
+  ${({ transparent }) => transparent && 'background-color: transparent'};
 `;
 
 export const BackIconWrapper = styled(TouchableOpacity)`

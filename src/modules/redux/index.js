@@ -7,11 +7,15 @@ import actionTypes from './actionTypes';
  * ======================================
  */
 import account from './account/reducer';
+import alert from './alert/reducer';
 import loading from './loading/reducer';
+import myinvitation from './myinvitation/reducer';
 
 const reducer = combineReducers({
+  alert,
   account,
-  loading
+  loading,
+  myinvitation
 });
 
 /**
@@ -41,7 +45,9 @@ export { store, actionTypes };
  * ======================================
  */
 export * from './account/action';
+export * from './alert/action';
 export * from './loading/action';
+export * from './myinvitation/action';
 
 /**
  * ======================================
@@ -49,4 +55,6 @@ export * from './loading/action';
  * ======================================
  */
 export * from './account/selector';
+export * from './alert/selector';
 export * from './loading/selector';
+export * from './myinvitation/selector';

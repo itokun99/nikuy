@@ -10,7 +10,7 @@ import {
   BackIconWrapper
 } from './styles';
 
-function NavbarBack({ title }) {
+function NavbarBack({ title, transparent, color }) {
   const router = useRouter();
   const isHome = router.pathname === routePaths.HOME;
 
@@ -20,7 +20,7 @@ function NavbarBack({ title }) {
 
   return (
     <Wrapper>
-      <Container>
+      <Container transparent={transparent} color={color}>
         <BackIconWrapper onPress={onPressBack}>
           <BackIcon />
         </BackIconWrapper>
@@ -31,10 +31,14 @@ function NavbarBack({ title }) {
 }
 
 NavbarBack.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  transparent: PropTypes.bool,
+  color: PropTypes.string
 };
 NavbarBack.defaultProps = {
-  title: ''
+  title: '',
+  color: 'light',
+  transparent: true
 };
 
 export default memo(NavbarBack);

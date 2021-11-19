@@ -83,6 +83,8 @@ validator.max = (value, max = 0) => {
   return true;
 };
 
+validator.isHasSpace = str => regex.whitespace.test(String(str));
+
 export {
   validator
 };

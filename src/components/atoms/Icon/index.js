@@ -20,6 +20,11 @@ import icEdit from '../../../../public/assets/icons/ic-edit.svg';
 import icPaper from '../../../../public/assets/icons/ic-paper.svg';
 import icInfo from '../../../../public/assets/icons/ic-info.svg';
 import icLogout from '../../../../public/assets/icons/ic-logout.svg';
+import icImage from '../../../../public/assets/icons/ic-image.svg';
+import icEditLight from '../../../../public/assets/icons/ic-edit-light.svg';
+import icHideLight from '../../../../public/assets/icons/ic-hide-light.svg';
+import icTrashLight from '../../../../public/assets/icons/ic-trash-light.svg';
+import icShowLight from '../../../../public/assets/icons/ic-show-light.svg';
 
 const icons = {
   'ic-home': icHome,
@@ -39,7 +44,12 @@ const icons = {
   'ic-edit': icEdit,
   'ic-paper': icPaper,
   'ic-info': icInfo,
-  'ic-logout': icLogout
+  'ic-logout': icLogout,
+  'ic-image': icImage,
+  'ic-edit-light': icEditLight,
+  'ic-hide-light': icHideLight,
+  'ic-trash-light': icTrashLight,
+  'ic-show-light': icShowLight
 };
 
 // Komponen Icon

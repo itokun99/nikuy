@@ -18,7 +18,7 @@ const menus = [
     id: 2,
     title: 'Undanganku',
     icon: 'ic-paper',
-    path: routePaths.USER_INVITATIONS
+    path: routePaths.MYINVITATION
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const MenuList = () => {
 
   const authPath = [
     routePaths.PROFILE,
-    routePaths.USER_INVITATIONS,
+    routePaths.MYINVITATION,
     routePaths.LOGOUT
   ];
 

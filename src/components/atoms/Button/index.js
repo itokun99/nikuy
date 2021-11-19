@@ -6,19 +6,19 @@ import { Title, TitleIconWrapper, Wrapper } from './styles';
 
 // Button Component
 const Button = ({
-  title,
-  children,
+  size,
   icon,
+  type,
   color,
+  title,
+  radius,
   onPress,
+  children,
+  disabled,
   titleProps,
   withShadow,
-  radius,
-  size,
   withBorder,
   borderColor,
-  disabled,
-  type,
   ...props
 }) => {
   const renderTitle = () => {
@@ -28,7 +28,7 @@ const Button = ({
     }
 
     // has icon return button with icon wrapper
-    if (icon) {
+    if (icon && title) {
       return (
         <TitleIconWrapper>
           <Icon icon={icon} size={24} />
@@ -40,12 +40,22 @@ const Button = ({
       );
     }
 
-    // default return button with title text
-    return (
-      <Title disabled={disabled} size={size} bold color={color} {...titleProps}>
-        {title}
-      </Title>
-    );
+    if (icon && !title) {
+      return (
+        <Icon icon={icon} size={24} />
+      );
+    }
+
+    if (title) {
+      // default return button with title text
+      return (
+        <Title disabled={disabled} size={size} bold color={color} {...titleProps}>
+          {title}
+        </Title>
+      );
+    }
+
+    return null;
   };
 
   return (

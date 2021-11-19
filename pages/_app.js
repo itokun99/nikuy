@@ -18,6 +18,10 @@ import { screenLoading } from 'controls';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { routePaths } from 'routes';
+import moment from 'moment';
+import 'moment/locale/id';
+
+moment.locale('id');
 
 const UtilsContainer = dynamic(() => import('../src/containers/UtilsContainer'), { ssr: false });
 
@@ -54,7 +58,8 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <CookiesProvider>
       <Head>
-        <title>Nikuy - </title>
+        <title>Halonikah - Cari, Undang dan Buat Undangan Nikah</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
       <DefaultSeo {...seoConfig} />
       <Provider store={store}>

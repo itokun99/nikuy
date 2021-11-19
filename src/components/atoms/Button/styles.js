@@ -33,7 +33,7 @@ const renderBtnTitle = color => {
     return `color: ${THEMES.colors.dark};`;
   }
 
-  const isDark = color === 'dark' || color === 'primary' || color === 'secondary';
+  const isDark = color === 'dark' || color === 'primary' || color === 'secondary' || color === 'danger';
 
   if (isDark) {
     return `color: ${THEMES.colors.light};`;
@@ -47,8 +47,8 @@ export const Wrapper = styled(TouchableOpacity)`
   ${({ size = 'm' }) => `
     padding-top: ${METRICS.gutter[size] / 1.5}px;
     padding-bottom: ${METRICS.gutter[size] / 1.5}px;
-    padding-right: ${METRICS.gutter[size]}px;
-    padding-left: ${METRICS.gutter[size]}px;
+    padding-right: ${METRICS.gutter[size] / 1.5}px;
+    padding-left: ${METRICS.gutter[size] / 1.5}px;
     `}
   overflow: hidden;
   border-radius: ${({ radius }) => METRICS.getRadius(radius, METRICS.radius.button)}px;

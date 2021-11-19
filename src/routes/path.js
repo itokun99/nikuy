@@ -7,7 +7,9 @@ const routePaths = {
   LOGIN: '/masuk',
   REGISTER: '/daftar',
   PROFILE: '/profil',
-  USER_INVITATIONS: '/undanganku',
+  MYINVITATION: '/undanganku',
+  CREATE_INVITATION: '/buat-undangan',
+  EDIT_INVITATION: '/edit-undangan',
   INFO: '/info',
   LOGOUT: '/keluar'
 };

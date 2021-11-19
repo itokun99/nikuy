@@ -3,6 +3,7 @@ export const COLORS = {
   dark: '#40394A',
   light: '#ffffff',
   green: '#65CE54',
+  softGray: '#f9f9f9',
   lightGray: '#F6F5F5',
   darkGray: '#dddddd',
   deepGray: '#8E8E8E',

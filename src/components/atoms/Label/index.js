@@ -18,7 +18,7 @@ Label.propTypes = {
 };
 Label.defaultProps = {
   children: null,
-  color: 'black',
+  color: 'dark',
   bold: false
 };
 

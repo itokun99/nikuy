@@ -120,7 +120,7 @@ const Login = () => {
             <Gap height="xs" />
             <FormGroup>
               <TextWrapper>
-                <Text align="right" size="xxs" link="/lupa-sandi">Lupa kata sandi?</Text>
+                <Text align="right" size="xxs" link href="/lupa-sandi">Lupa kata sandi?</Text>
               </TextWrapper>
             </FormGroup>
             <Gap height="xs" />
@@ -132,7 +132,7 @@ const Login = () => {
               <Text size="xxs">
                 Belum punya akun?
                 {' '}
-                <Text size="xxs" link="/daftar">daftar disini</Text>
+                <Text size="xxs" link href="/daftar">daftar disini</Text>
               </Text>
             </FormGroup>
           </Form>

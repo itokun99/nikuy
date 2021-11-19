@@ -1,0 +1,1 @@
+export const myinvitationSelector = state => state.myinvitation.invitation;

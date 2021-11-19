@@ -20,7 +20,7 @@ const Text = ({
 }) => {
   if (link) {
     return (
-      <Link href={link} passHref>
+      <Link href={href} passHref>
         <CustomLink
           size={size}
           strike={strike}
@@ -71,7 +71,7 @@ Text.propTypes = {
 Text.defaultProps = {
   title: '',
   link: false,
-  href: null,
+  href: '',
   onPressLink: null,
   children: null,
   strike: false,

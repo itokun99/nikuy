@@ -3,7 +3,7 @@ import { MainContainer } from 'containers';
 const Home = () => (
   <MainContainer
     navbarProps={{
-      title: 'NIKUY'
+      title: 'HALONIKAH'
     }}
   >
     <div>test</div>

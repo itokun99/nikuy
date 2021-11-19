@@ -4,7 +4,9 @@ import {
   Wrapper,
   Label,
   Input,
+  InputArea,
   HelperText,
+  InputSelect,
   PasswordLabel,
   PasswordLabelWrapper
 } from './styles';
@@ -19,6 +21,7 @@ const FormInput = ({
   onBlur,
   onFocus,
   disabled,
+  children,
   onChange,
   placeholder,
   errorMessage
@@ -79,14 +82,13 @@ const FormInput = ({
     return null;
   };
 
-  return (
-    <>
-      <Wrapper focus={focus} type={type} error={error} disabled={disabled}>
-        <Label error={error} disabled={disabled}>{label}</Label>
-        <Input
+  const renderInputComponent = () => {
+    if (type === 'textarea') {
+      return (
+        <InputArea
           ref={input}
           name={name}
-          type={type === 'password' && visiblePassword ? 'text' : type}
+          type={type}
           value={value}
           onBlur={onInputBlur}
           onFocus={onInputFocus}
@@ -94,6 +96,47 @@ const FormInput = ({
           onChange={onChange}
           placeholder={placeholder}
         />
+      );
+    }
+
+    if (type === 'select') {
+      return (
+        <InputSelect
+          ref={input}
+          name={name}
+          type={type}
+          value={value}
+          onBlur={onInputBlur}
+          onFocus={onInputFocus}
+          disabled={disabled}
+          onChange={onChange}
+          placeholder={placeholder}
+        >
+          {children}
+        </InputSelect>
+      );
+    }
+
+    return (
+      <Input
+        ref={input}
+        name={name}
+        type={type === 'password' && visiblePassword ? 'text' : type}
+        value={value}
+        onBlur={onInputBlur}
+        onFocus={onInputFocus}
+        disabled={disabled}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+    );
+  };
+
+  return (
+    <>
+      <Wrapper focus={focus} type={type} error={error} disabled={disabled}>
+        <Label error={error} disabled={disabled}>{label}</Label>
+        {renderInputComponent()}
         {renderPasswordUtil()}
       </Wrapper>
       {renderHelperText()}
@@ -108,7 +151,9 @@ FormInput.propTypes = {
     'text',
     'number',
     'date',
-    'textarea'
+    'time',
+    'textarea',
+    'select'
   ]),
   error: PropTypes.bool,
   name: PropTypes.string,
@@ -118,7 +163,8 @@ FormInput.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  children: PropTypes.any
 };
 
 FormInput.defaultProps = {
@@ -131,7 +177,8 @@ FormInput.defaultProps = {
   disabled: false,
   onFocus: () => {},
   onBlur: () => {},
-  onChange: () => {}
+  onChange: () => {},
+  children: null
 };
 
 export default FormInput;

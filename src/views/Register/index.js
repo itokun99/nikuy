@@ -170,7 +170,7 @@ const Register = () => {
               <Text size="xxs">
                 Sudah punya akun?
                 {' '}
-                <Text size="xxs" link="/masuk">Masuk disini</Text>
+                <Text size="xxs" link href="/masuk">Masuk disini</Text>
               </Text>
             </FormGroup>
           </Form>

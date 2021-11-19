@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import { FONTS, THEMES, METRICS } from 'utils';
+import {
+  FONTS, THEMES, METRICS, COLORS
+} from 'utils';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -52,7 +54,7 @@ table {
 }
 
 body {
-  background-color:#f9f9f9;
+  background-color:${COLORS.softGray};
   font-family: ${FONTS.fontFamily.regular};
 }
 
