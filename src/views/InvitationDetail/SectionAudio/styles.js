@@ -8,9 +8,10 @@ export const IconWrapper = styled(TouchableOpacity)`
   right: 0;
   border-radius: 24px;
   margin-right: ${METRICS.gutter.m}px;
-  margin-bottom: ${METRICS.gutter.m}px;
+  margin-top: ${METRICS.gutter.m}px;
   padding: ${METRICS.gutter.xs}px;
   background-color: ${THEMES.colors.primary};
+  z-index: 1;
 `;
 
 export const PlayIcon = styled(Icon).attrs({
