@@ -14,6 +14,10 @@ const myinvitation = {
   SET_MYINVITATION: 'SET_MYINVITATION'
 };
 
+const invitation = {
+  SET_INVITATION: 'SET_INVITATION'
+};
+
 const alert = {
   SET_ALERT: 'ALERT/SET',
   CLEAR_ALERT: 'ALERT/CLEAR',
@@ -26,6 +30,7 @@ const actionTypes = {
   alert,
   account,
   loading,
+  invitation,
   myinvitation
 };
 

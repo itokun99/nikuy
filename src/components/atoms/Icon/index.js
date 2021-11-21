@@ -25,6 +25,10 @@ import icEditLight from '../../../../public/assets/icons/ic-edit-light.svg';
 import icHideLight from '../../../../public/assets/icons/ic-hide-light.svg';
 import icTrashLight from '../../../../public/assets/icons/ic-trash-light.svg';
 import icShowLight from '../../../../public/assets/icons/ic-show-light.svg';
+import icCalendar from '../../../../public/assets/icons/ic-calendar.svg';
+import icCloseLight from '../../../../public/assets/icons/ic-close-light.svg';
+import icPlayLight from '../../../../public/assets/icons/ic-play-light.svg';
+import icPauseLight from '../../../../public/assets/icons/ic-pause-light.svg';
 
 const icons = {
   'ic-home': icHome,
@@ -49,7 +53,11 @@ const icons = {
   'ic-edit-light': icEditLight,
   'ic-hide-light': icHideLight,
   'ic-trash-light': icTrashLight,
-  'ic-show-light': icShowLight
+  'ic-show-light': icShowLight,
+  'ic-calendar': icCalendar,
+  'ic-close-light': icCloseLight,
+  'ic-play-light': icPlayLight,
+  'ic-pause-light': icPauseLight
 };
 
 // Komponen Icon

@@ -18,6 +18,7 @@ const Button = ({
   titleProps,
   withShadow,
   withBorder,
+  iconProps,
   borderColor,
   ...props
 }) => {
@@ -31,7 +32,7 @@ const Button = ({
     if (icon && title) {
       return (
         <TitleIconWrapper>
-          <Icon icon={icon} size={24} />
+          <Icon icon={icon} size={24} {...iconProps} />
           <Gap width="xs" />
           <Title disabled={disabled} size={size} color={color} bold {...titleProps}>
             {title}
@@ -42,7 +43,7 @@ const Button = ({
 
     if (icon && !title) {
       return (
-        <Icon icon={icon} size={24} />
+        <Icon icon={icon} size={24} {...iconProps} />
       );
     }
 

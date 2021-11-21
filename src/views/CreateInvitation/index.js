@@ -13,6 +13,7 @@ import {
   FormSchedule,
   FormRekening,
   FormVideo,
+  FormAudio,
   FormGallery
 } from 'components';
 import { useRouter } from 'next/router';
@@ -53,7 +54,8 @@ const initialForm = {
   galleries: [],
   videos: [],
   rekening: [],
-  ewallets: []
+  ewallets: [],
+  audios: []
 };
 
 const initialerror = {
@@ -95,6 +97,11 @@ const initial = {
     url: ''
   },
 
+  audios: {
+    id: '',
+    url: ''
+  },
+
   galleries: {
     id: '',
     url: '',
@@ -128,8 +135,6 @@ const CreateInvitation = () => {
   const [cities, setCities] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [subdistricts, setSubdistricts] = useState([]);
-
-  console.log('form', form);
 
   const getProvinceData = useCallback(() => {
     setProvinces([]);
@@ -339,6 +344,7 @@ const CreateInvitation = () => {
     formData.append('videos', JSON.stringify(form.videos));
     formData.append('rekening', JSON.stringify(form.rekening));
     formData.append('ewallets', JSON.stringify(form.ewallets));
+    formData.append('audios', JSON.stringify(form.audios));
 
     form.couples.forEach(data => {
       formData.append(`couple_${data.id}`, data.photoFile);
@@ -402,7 +408,8 @@ const CreateInvitation = () => {
           galleries: data.galleries,
           videos: data.videos,
           rekening: data.rekening,
-          ewallets: data.ewallets
+          ewallets: data.ewallets,
+          audios: data.audios
         });
 
         getProvinceData();
@@ -621,14 +628,19 @@ const CreateInvitation = () => {
         />
       ))}
       <Container>
-        <Button
-          title="+ Tambahkan Video"
-          onPress={() => addNewForm('videos')}
-          withBorder
-          borderColor="primary"
-          color="transparent"
-        />
-        <Gap height="xl" />
+        {form.videos && form.videos.length === 0 && (
+          <>
+            <Button
+              title="+ Tambahkan Video"
+              onPress={() => addNewForm('videos')}
+              withBorder
+              borderColor="primary"
+              color="transparent"
+            />
+            <Gap height="xl" />
+          </>
+        )}
+
       </Container>
     </>
   );
@@ -714,12 +726,45 @@ const CreateInvitation = () => {
     </>
   );
 
+  const renderFormAudio = () => (
+    <>
+      <Container>
+        <Text bold>Audio</Text>
+        <Gap height="m" />
+      </Container>
+      {form.audios.map(item => (
+        <FormAudio
+          key={item.id}
+          form={item}
+          onChange={(e, i) => onMultipleFormChange(item.id, 'audios', e, i)}
+          onDelete={() => onDeleteForm(item.id, 'audios')}
+        />
+      ))}
+      <Container>
+        {form.audios && form.audios.length === 0 && (
+          <>
+            <Button
+              title="+ Tambahkan Audio"
+              onPress={() => addNewForm('audios')}
+              withBorder
+              borderColor="primary"
+              color="transparent"
+            />
+            <Gap height="xl" />
+          </>
+        )}
+
+      </Container>
+    </>
+  );
+
   return (
     <SecondContainer
+      transparent={false}
       navbarProps={{
         title: 'Buat Undangan',
         transparent: false,
-        color: 'softGray'
+        color: 'light'
       }}
     >
       <Form onSubmit={onSubmit}>
@@ -728,6 +773,7 @@ const CreateInvitation = () => {
         {renderFormDetailLocation()}
         {renderFormSchedule()}
         {renderFormVideo()}
+        {renderFormAudio()}
         {renderFormGallery()}
         {renderFormRekening()}
         {renderFormEwallet()}

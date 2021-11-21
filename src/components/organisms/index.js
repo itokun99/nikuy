@@ -8,6 +8,7 @@ import FormCouple from './FormCouple';
 import FormSchedule from './FormSchedule';
 import FormRekening from './FormRekening';
 import FormVideo from './FormVideo';
+import FormAudio from './FormAudio';
 import FormGallery from './FormGallery';
 
 export {
@@ -19,6 +20,7 @@ export {
   ModalAuth,
   FormCouple,
   FormVideo,
+  FormAudio,
   FormSchedule,
   FormRekening,
   FormGallery

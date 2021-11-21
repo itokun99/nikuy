@@ -1,7 +1,6 @@
 module.exports = {
-  reactStrictMode: true,
-}
-
+  reactStrictMode: true
+};
 
 const withFonts = require('next-fonts');
 const withImage = require('next-images');
@@ -12,7 +11,11 @@ const path = require('path');
 const nextConfig = {
   include: path.resolve(__dirname, './public/images'),
   webpack: config => config,
-  reactStrictMode: true
+  reactStrictMode: true,
+  images: {
+    domains: ['localhost']
+  }
+
 };
 
 module.exports = withPlugins([

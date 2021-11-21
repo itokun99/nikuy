@@ -23,7 +23,10 @@ const apiEndpoint = {
   myinvitation: `${appActiveConfig.api.baseUrl}/v1/myinvitation`,
   createMyInvitation: `${appActiveConfig.api.baseUrl}/v1/myinvitation/add`,
   editMyInvitation: `${appActiveConfig.api.baseUrl}/v1/myinvitation/edit`,
-  deleteMyInvitation: `${appActiveConfig.api.baseUrl}/v1/myinvitation/delete`
+  deleteMyInvitation: `${appActiveConfig.api.baseUrl}/v1/myinvitation/delete`,
+
+  // invitation
+  invitations: `${appActiveConfig.api.baseUrl}/v1/invitations`
 };
 
 export { apiEndpoint };

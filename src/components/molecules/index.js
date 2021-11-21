@@ -1,3 +1,4 @@
+import Couple from './Couple';
 import Navbar from './Navbar';
 import BottomNav from './BottomNav';
 import NavbarBack from './NavbarBack';
@@ -9,11 +10,14 @@ import UploadImage from './UploadImage';
 import UploadImageSquare from './UploadImageSquare';
 import UploadImageRounded from './UploadImageRounded';
 import CardInvitation from './CardInvitation';
+import Schedule from './Schedule';
 
 export {
   Navbar,
+  Couple,
   ListItem,
   BottomNav,
+  Schedule,
   NavbarBack,
   CardSignIn,
   CardProfile,

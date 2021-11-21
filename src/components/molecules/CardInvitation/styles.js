@@ -6,7 +6,7 @@ export const Wrapper = styled(View)`
   padding: ${METRICS.gutter.s}px;
   border-radius: ${METRICS.radius.s}px;
   background-color: ${THEMES.colors.light};
-  margin-bottom: ${METRICS.gutter.m}px;
+  margin-bottom: ${METRICS.gutter.l}px;
   ${THEMES.shadow.styled.getBoxShadow()}
 `;
 export const Thumbnail = styled(View)`

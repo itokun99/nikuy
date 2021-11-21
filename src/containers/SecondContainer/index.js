@@ -4,12 +4,15 @@ import { Wrapper } from './styles';
 
 function SecondContainer({
   children,
-  navbarProps
+  navbarProps,
+  transparent,
+  padding,
+  navbar
 }) {
   return (
     <>
-      <NavbarBack {...navbarProps} />
-      <Wrapper>
+      {navbar && <NavbarBack {...navbarProps} />}
+      <Wrapper transparent={transparent} padding={padding}>
         {children}
       </Wrapper>
     </>
@@ -17,12 +20,18 @@ function SecondContainer({
 }
 
 SecondContainer.propTypes = {
+  navbar: PropTypes.bool,
   children: PropTypes.node,
-  navbarProps: PropTypes.object
+  navbarProps: PropTypes.object,
+  transparent: PropTypes.bool,
+  padding: PropTypes.bool
 };
 SecondContainer.defaultProps = {
+  navbar: true,
   children: null,
-  navbarProps: {}
+  navbarProps: {},
+  transparent: true,
+  padding: true
 };
 
 export default SecondContainer;

@@ -1,9 +1,10 @@
+/* eslint-disable react/no-danger */
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import { Wrapper } from './styles';
 
-const RenderHtml = ({ htmlString }) => {
+const RenderHtml = ({ htmlString, ...props }) => {
   if (!htmlString) {
     return null;
   }
@@ -11,7 +12,7 @@ const RenderHtml = ({ htmlString }) => {
   const cleanHtmlString = DOMPurify.sanitize(htmlString);
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <div dangerouslySetInnerHTML={{ __html: cleanHtmlString }} />
     </Wrapper>
   );

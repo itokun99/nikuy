@@ -26,4 +26,6 @@ API.createMyInvitation = apiRequest.post(apiEndpoint.createMyInvitation);
 API.editMyInvitation = apiRequest.post(apiEndpoint.editMyInvitation);
 API.deleteMyInvitation = apiRequest.delete(apiEndpoint.deleteMyInvitation);
 
+API.invitations = apiRequest.get(apiEndpoint.invitations);
+
 export default API;

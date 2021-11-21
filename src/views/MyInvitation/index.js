@@ -35,7 +35,7 @@ const MyInvitation = () => {
   };
 
   const onView = data => {
-    router.push(`${routePaths.LIST_INVITATION}/${data?.id}`);
+    router.push(`${routePaths.LIST_INVITATION}/${data?.slug}`);
   };
 
   const onDelete = data => {

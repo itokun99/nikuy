@@ -31,7 +31,7 @@ const ImageView = ({
   }
 
   return (
-    <RNImage src={source} onClick={onPress} resizeMode={resizeMode} {...(typeof onPress === 'function' && { onClick: onPress })} {...props} />
+    <RNImage src={getImageSource()} onClick={onPress} resizeMode={resizeMode} {...(typeof onPress === 'function' && { onClick: onPress })} {...props} />
   );
 };
 
