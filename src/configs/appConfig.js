@@ -25,7 +25,7 @@ const seoConfig = {
  */
 const appEnvironment = {
   api: {
-    baseUrl: 'https://apidev.elites.id/api'
+    baseUrl: 'https://dev.elites.id/api'
   }
 };
 

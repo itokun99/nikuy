@@ -13,7 +13,7 @@ const nextConfig = {
   webpack: config => config,
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'apidev.elites.id', 'elites.id']
+    domains: ['localhost', 'apidev.elites.id', 'elites.id', 'dev.elites.id']
   }
 
 };
