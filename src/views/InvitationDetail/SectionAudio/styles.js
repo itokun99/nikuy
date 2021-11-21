@@ -4,11 +4,11 @@ import { METRICS, THEMES } from 'utils';
 
 export const IconWrapper = styled(TouchableOpacity)`
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   border-radius: 24px;
-  margin-right: ${METRICS.gutter.xs}px;
-  margin-bottom: ${METRICS.gutter.xs}px;
+  margin-right: ${METRICS.gutter.m}px;
+  margin-bottom: ${METRICS.gutter.m}px;
   padding: ${METRICS.gutter.xs}px;
   background-color: ${THEMES.colors.primary};
 `;
