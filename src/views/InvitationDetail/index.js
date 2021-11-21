@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SecondContainer } from 'containers';
 import Image from 'next/image';
 import { Gap } from 'components';
+import { NextSeo } from 'next-seo';
 import SectionTop from './SectionTop';
 import SectionCouples from './SectionCouples';
 import SectionSchedules from './SectionSchedules';
@@ -36,6 +37,26 @@ const InvitationDetail = ({ invitation }) => {
         transparent: true
       }}
     >
+      <NextSeo
+        {
+        ...{
+          title: invitation.title,
+          description: invitation.description,
+          openGraph: {
+            title: invitation.title,
+            description: invitation.description,
+            images: [
+              {
+                url: invitation.image?.thumbnail,
+                width: 480,
+                height: 380,
+                alt: 'Og Image Alt',
+                type: 'image/jpeg'
+              }
+            ]
+          }
+        }}
+      />
       <Image
         src={invitation.image?.thumbnail}
         width={480}
