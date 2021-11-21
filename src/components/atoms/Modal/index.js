@@ -74,12 +74,12 @@ const Modal = ({
   }, [handleClickOutside]);
 
   useEffect(() => {
-    if (visible) {
+    if (visible && backdrop) {
       document.body.style.overflowY = 'hidden';
     } else {
       document.body.style.overflowY = 'auto';
     }
-  }, [visible]);
+  }, [visible, backdrop]);
 
   const renderHeaderSection = () => {
     if (!header) {
@@ -171,8 +171,7 @@ const Modal = ({
           {createPortal(
             <>
               {backdrop && <Backdrop visible={visible} {...backdropProps} />}
-              <Wrapper visible={visible} className="modal-wrapper" ref={ModalRef}>
-                <BackdropAction onClick={onBackdropPress} visible={visible} />
+              <Wrapper backdrop={backdrop} visible={visible} className="modal-wrapper" ref={ModalRef}>
                 {backdrop && <BackdropAction onClick={onBackdropPress} visible={visible} />}
                 <Background>
                   {renderHeaderSection()}

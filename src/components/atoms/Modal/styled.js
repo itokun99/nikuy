@@ -66,6 +66,8 @@ export const Wrapper = styled.div`
     transform: translateY(100%);
     opacity: 0;
   `}
+
+  ${({ backdrop }) => !backdrop && 'top: auto;height: auto;'}
 `;
 
 export const MiddleWrapper = styled.div`
@@ -93,7 +95,7 @@ export const ModalHeader = styled(View)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: ${METRICS.gutter.s}px;
+  padding: ${METRICS.gutter.m}px;
 `;
 
 export const LineWrapper = styled(View)`
